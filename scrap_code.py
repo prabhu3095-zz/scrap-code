@@ -1,8 +1,8 @@
 '''
-    author : Prabhu Dayal Sahoo
+    Author : Prabhu Dayal Sahoo
     College : National Institute of Technology Karnataka
-    Project Name : SCRAP CODE
-    Project Idea : Scraps and stores the best solution code for a given problem code from codechef.com
+    Project Name : SCRAP THE CODE
+    Project Idea : Scraps and stores the best solution code for a given problem code from codechef.com in a text file.
 '''
 
 
@@ -39,16 +39,18 @@ def best_sol():
     driver.get(base_url+problem_name)
     print 'Opening Codechef.com...'
 
+    #click on the + button (Successful Submissions) to exapand it
     open_submission = driver.find_element_by_xpath("//button[@class='toogle-button fa fa-plus-square-o']")
     open_submission.click()
     
     response = driver.page_source
     soup = bs4.BeautifulSoup(response, 'html.parser')
-    
+
+    #find out the best solution
     link = soup.select('div.table-questions a[href^=/viewsolution]')[0]['href']
-    sol = str(link)
+    sol = str(link)  
     
-    url = 'https://www.codechef.com' + sol
+    url = 'https://www.codechef.com' + sol  #url of the best solution
     driver.get(url)
     print 'Opening %s...' % url
     
@@ -61,7 +63,7 @@ def best_sol():
     print 'Downloading the code...'
 
     for row in soup1.find_all('ol'):
-        for x in row.find_all('li'):
+        for x in row.find_all('li'):      #print the code line by line  
             print >>f, x.text.encode('utf-8')
     print 'Code Downloaded Successfully...'
 
