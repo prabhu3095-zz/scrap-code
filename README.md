@@ -1,3 +1,3 @@
 # Scrap The Code
 
-Scraps and stores the best solution code for a given problem code from codechef.com in a text file. Code has been written in Python using Selenium, Requests and BeautifulSoup libraries.
+Scraps and stores the best solution code for a given problem code from codechef.com in a text file. Code has been written in Python using Selenium, Requests and BeautifulSoup libraries. The program takes PROBLEM CODE(as on codechef.com) of the problem as the input, scraps the best solution for that problem from codechef.com and stores it in a text file named as code_problemcode.txt.  
